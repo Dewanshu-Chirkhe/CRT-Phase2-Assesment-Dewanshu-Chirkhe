@@ -1,18 +1,18 @@
-# Post Assessment Spring Boot Demo
+# CRT Phase 2 Post Assessment Demo
 
-This is a simple Spring Boot project created for grading/demo purposes. It contains small examples for multiple post-assessment coding questions in one project.
+This is a single Spring Boot project created for grading/demo purposes. It demonstrates the coding questions from the CRT Phase 2 post-assessment in one simple project.
 
-The focus is on beginner-friendly code, simple layered architecture, and readable examples rather than production-ready implementation.
+The code is intentionally simple, beginner-friendly, and short. It is not meant to be production-ready.
 
 ## Tech Stack
 
 - Java 21
 - Spring Boot
 - Maven
+- MySQL
 - Spring Web
 - Spring Data JPA
 - Validation
-- MySQL Driver
 - Spring Security
 - Eureka Discovery Client
 - Spring Cloud Gateway
@@ -32,27 +32,32 @@ src/main/java/com/post/test
 └── service
 ```
 
-## Questions Covered
+## Coding Questions Covered
 
-- Q3: Student DTO validation and POST API
-- Q5: Employee and Department JPA relationship
-- Q7: Product repository custom JPQL query
-- Q9: Second highest salary using SQL idea and JPQL query
-- Q10: Spring Data JPA derived query methods
-- Q12: Eureka client configuration
-- Q13: Resilience4j Circuit Breaker with RestTemplate fallback
-- Q14: Spring Cloud Gateway route configuration
-- Q15: Load-balanced RestTemplate bean
-- Q17: ProductService unit test using JUnit 5 and Mockito
-- Q19: Dockerfile for Spring Boot app
-- Q20: docker-compose file with database and app service
-- Q21: Simple HTML and JavaScript fetch example
+| Question | Requirement | Implementation |
+| --- | --- | --- |
+| Q3 | POST `/api/students` with validation | `StudentDTO`, `StudentController` |
+| Q5 | `Employee` and `Department` JPA relationship | `Employee`, `Department` |
+| Q7 | Spring Data JPA `@Query` repository method | `ProductRepository` |
+| Q9 | SQL query for second highest salary and JPQL version | `EmployeeRepository` |
+| Q10 | Four derived query method signatures | `StudentRepository` |
+| Q12 | Eureka `application.yml` and main class annotation | `application.yml`, `TestApplication` |
+| Q13 | `@CircuitBreaker` with `RestTemplate` and fallback | `PaymentService`, `PaymentResponse` |
+| Q14 | Spring Cloud Gateway routes | `application.yml` |
+| Q15 | `RestTemplate` bean with service discovery | `AppConfig` |
+| Q17 | JUnit 5 and Mockito unit test | `ProductServiceTest` |
+| Q19 | Dockerfile and Docker build/run commands | `Dockerfile` |
+| Q20 | Docker Compose file | `docker-compose.yml` |
+| Q21 | JavaScript `loadUsers()` async function | `src/main/resources/static/users.html` |
+
+## [Theory / Conceptual Questions](</home/dewanshu-chirkhe/Documents/CRT/test/CRT-Phase2-Assesment-[Dewanshu-Chirkhe].pdf>)
 
 ## Database Configuration
 
 The project uses this MySQL configuration in `application.properties`:
 
 ```properties
+spring.application.name=task2
 spring.datasource.url=jdbc:mysql://localhost:3306/CRT
 spring.datasource.username=root
 spring.datasource.password=root
@@ -86,7 +91,7 @@ Run container:
 docker run -p 8080:8080 myapp:latest
 ```
 
-Run with docker compose:
+Run with Docker Compose:
 
 ```bash
 docker compose up
@@ -94,4 +99,4 @@ docker compose up
 
 ## Notes
 
-This project intentionally keeps the implementation minimal. Some configurations are included together in one project only to demonstrate the assessment concepts clearly.
+This project keeps all examples inside one Spring Boot project even though some topics, such as Gateway and normal REST controllers, are often separated in real microservice projects.
