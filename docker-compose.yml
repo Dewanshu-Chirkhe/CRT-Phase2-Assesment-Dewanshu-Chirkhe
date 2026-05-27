@@ -1,0 +1,17 @@
+# Q20: Simple docker-compose example with a database and app service.
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: CRT
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+
+  app:
+    image: myapp:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db

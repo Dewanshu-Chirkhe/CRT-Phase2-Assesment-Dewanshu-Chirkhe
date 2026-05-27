@@ -1,0 +1,55 @@
+# Maven build output
+target/
+build/
+out/
+
+# Keep nested target/build folders only if someone intentionally places source files there
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Logs
+*.log
+logs/
+
+# Local environment and secrets
+.env
+.env.*
+application-local.properties
+application-local.yml
+
+# Maven wrapper generated jar, not needed for this only-script wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot generated helper file
+HELP.md
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse / STS
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

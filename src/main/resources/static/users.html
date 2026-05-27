@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users Demo</title>
+</head>
+<body>
+    <!-- Q21: Plain JavaScript fetch example that renders users or an error. -->
+    <button onclick="loadUsers()">Load Users</button>
+    <p id="error"></p>
+    <ul id="user-list"></ul>
+
+    <script>
+        async function loadUsers() {
+            const error = document.getElementById("error");
+            const userList = document.getElementById("user-list");
+
+            error.textContent = "";
+            userList.innerHTML = "";
+
+            try {
+                const response = await fetch("/api/users");
+
+                if (!response.ok) {
+                    throw new Error("Could not load users");
+                }
+
+                const users = await response.json();
+
+                users.forEach(function (user) {
+                    const li = document.createElement("li");
+                    li.textContent = user.name;
+                    userList.appendChild(li);
+                });
+            } catch (e) {
+                error.textContent = e.message;
+            }
+        }
+    </script>
+</body>
+</html>

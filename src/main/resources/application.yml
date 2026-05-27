@@ -1,0 +1,21 @@
+# Q12: Eureka client configuration for service registration.
+spring:
+  application:
+    name: product-service
+  cloud:
+    gateway:
+      # Q14: Spring Cloud Gateway routes using service discovery load-balanced URLs.
+      routes:
+        - id: order-service-route
+          uri: lb://order-service
+          predicates:
+            - Path=/api/orders/**
+        - id: user-service-route
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
